@@ -1,4 +1,4 @@
-const BOOKING_URL = 'https://outlook.office.com/bookwithme/user/e350f7fd08f34efeba9088672e26bbe6@SimonicTechSolutions.onmicrosoft.com/meetingtype/tH17irHtLkCkYUdYjc98Fw2?anonymous&ismsaljsauthenabled&ep=mlink';
+﻿const BOOKING_URL = 'https://outlook.office.com/bookwithme/user/e350f7fd08f34efeba9088672e26bbe6@SimonicTechSolutions.onmicrosoft.com/meetingtype/tH17irHtLkCkYUdYjc98Fw2?anonymous&ismsaljsauthenabled&ep=mlink';
 
 window.openBooking = function () {
     window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
@@ -6,20 +6,21 @@ window.openBooking = function () {
 
 function renderContent(route) {
     const routes = {
-        'home': renderHome(),
-        'solutions': renderSolutions(),
-        'industries': renderIndustries(),
-        'about': renderAbout(),
-        'pricing': renderPricing(),
-        'contact': renderContact(),
-        'faq': renderFaq(),
-        'legal-imprint': renderImprint(),
-        'legal-privacy': renderPrivacy(),
-        'legal-cookies': renderCookies(),
-        'legal-agb': renderAgb()
+        'home': renderHome,
+        'solutions': renderSolutions,
+        'industries': renderIndustries,
+        'about': renderAbout,
+        'pricing': renderPricing,
+        'contact': renderContact,
+        'faq': renderFaq,
+        'legal-imprint': renderImprint,
+        'legal-privacy': renderPrivacy,
+        'legal-cookies': renderCookies,
+        'legal-agb': renderAgb
     };
 
-    return `<div class="page-enter">${routes[route] || routes['home']}</div>`;
+    const renderRoute = routes[route] || routes['home'];
+    return `<div class="page-enter">${renderRoute()}</div>`;
 }
 
 function renderHome() {
@@ -260,7 +261,7 @@ function renderSolutions() {
                 <p class="text-gray-400 max-w-3xl mb-12">Viele Probleme wirken auf den ersten Blick klein oder operativ. In der Praxis zeigen sie jedoch, dass Zuständigkeiten, Zugriffe, Abläufe oder Eigentümerschaft digital nicht sauber organisiert sind.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-32">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-32 solution-grid">
                 ${renderSolutionCard('Lösung 1 – Struktur und Zuständigkeiten ordnen', 'Wenn Dateien, Ablagen, Verantwortlichkeiten oder Routinen über die Zeit gewachsen sind, sorgt STS für eine Form, die nachvollziehbar, begrenzbar und im Alltag verständlich bleibt.')}
                 ${renderSolutionCard('Lösung 2 – Zugriffe und Rollen bereinigen', 'Wenn nicht mehr klar ist, wer worauf Zugriff hat, wie Freigaben gewachsen sind oder welche Rechte intern eigentlich gelten, bringt STS die operative Zugriffslogik wieder in Ordnung.')}
                 ${renderSolutionCard('Lösung 3 – Übergaben und Veränderungen absichern', 'Wenn Ausfälle, Vertretungen, neue Mitarbeiter oder Änderungen im System regelmäßig Unsicherheit erzeugen, arbeitet STS an einem Zustand, der Übergaben und Veränderungen robuster macht.')}
@@ -393,7 +394,7 @@ function renderAbout() {
                 <div class="reveal">
                     <h2 class="text-2xl font-bold text-white mb-8">Was STS ist</h2>
                     <div class="space-y-4">
-                        ${['STS ist die Ausführungsebene für Struktur, Klarheit und digitale Belastbarkeit.', 'STS arbeitet an Zuständigkeiten, Zugriffslogiken, Ablagestrukturen, Übergaben und nachvollziehbaren Abläufen.', 'STS verbindet sichtbare Probleme mit der technischen Arbeit darunter, die einen stabilen Zustand herstellt.'].map(txt => `<div class="p-5 bg-white/[0.02] border border-white/5 rounded-xl text-gray-400 text-sm">${txt}</div>`).join('')}
+                        ${['STS ist die Ausführungsebene für Struktur, Klarheit und digitale Belastbarkeit.', 'STS arbeitet an Zuständigkeiten, Zugriffslogiken, Ablagestrukturen, Übergaben und nachvollziehbaren Abläufen.', 'STS verbindet sichtbare Probleme mit der technischen Arbeit darunter, die einen stabilen Zustand herstellt.'].map(txt => `<div class="p-5 bg-cyan-500/[0.06] border border-cyan-400/15 rounded-xl text-cyan-50/88 text-sm shadow-[0_20px_40px_-30px_rgba(6,182,212,0.45)]">${txt}</div>`).join('')}
                     </div>
                 </div>
                 <div class="reveal">
@@ -715,28 +716,14 @@ function bootSTS() {
         renderPage(getCurrentPage(), true);
     });
 
-    // Working fallback sequence
     renderPage(getCurrentPage(), false);
-
-    const rerenderDelays = [150, 500, 1200, 2200];
-    rerenderDelays.forEach(delay => {
-        setTimeout(() => {
-            renderPage(getCurrentPage(), false);
-        }, delay);
-    });
-
-    // Reveal only after fallback cycle is done
-    setTimeout(() => {
+    requestAnimationFrame(() => {
         document.body.classList.add('sts-app-ready');
-    }, 2300);
+    });
 
     window.addEventListener('load', () => {
-        setTimeout(() => renderPage(getCurrentPage(), false), 300);
-        setTimeout(() => renderPage(getCurrentPage(), false), 1200);
-        setTimeout(() => {
-            document.body.classList.add('sts-app-ready');
-        }, 1400);
-    });
+        document.body.classList.add('sts-app-ready');
+    }, { once: true });
 }
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', bootSTS);
@@ -843,3 +830,4 @@ function applyScrollAnimations() {
         );
     });
 }
+

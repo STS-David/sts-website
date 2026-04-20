@@ -1,4 +1,4 @@
-# STS Website Architecture
+﻿# STS Website Architecture
 
 ## Current Architecture
 - WordPress host
@@ -30,3 +30,4 @@ Core public pages must not depend on dynamic runtime content injection for first
 - CMS/admin shell
 - legal/simple content if needed
 - not the primary visual engine
+

@@ -1,90 +1,266 @@
-<!DOCTYPE html>
-<html lang="de" class="dark">
+﻿<!DOCTYPE html>
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simonic Tech Solutions | STS</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="current-live/css/styles.css">
+    <title>STS | Simonic Tech Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/utilities.css">
+    <script src="scripts/consent-bootstrap.js"></script>
+    <script defer src="scripts/consent.js"></script>
 </head>
-<body class="bg-[#05070a] text-gray-200 selection:bg-cyan-500/30 overflow-x-hidden">
+<body class="sts-app">
+    <div class="transition-overlay is-active" data-transition-overlay></div>
+    <div class="bg-field"></div>
 
-    <div id="transition-overlay" class="fixed inset-0 pointer-events-none z-[100] bg-cyan-500/20 backdrop-blur-3xl opacity-0"></div>
-
-    <div class="fixed top-[-10%] left-[-10%] w-[60%] h-[60%] bg-blue-900/10 blur-[150px] rounded-full z-[-1]"></div>
-    <div class="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-cyan-900/10 blur-[150px] rounded-full z-[-1]"></div>
-
-    <nav class="fixed top-0 w-full z-50 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex items-center justify-between glass-nav px-6 py-3 rounded-2xl border border-white/10 shadow-2xl">
-            <div class="flex items-center gap-2 cursor-pointer group" onclick="navigateTo('home')">
-                <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-110 transition-transform">
-                    <span class="font-bold text-white text-xs">STS</span>
+    <nav class="site-nav" data-nav-root>
+        <div class="site-nav-inner">
+            <div class="site-nav-shell glass-surface">
+                <a class="brand-lockup" href="./" aria-label="Simonic Tech Solutions Startseite">
+                    <img class="brand-logo" src="assets/logo/sts-logo.svg" alt="STS Logo">
+                    <span class="brand-name">Simonic Tech Solutions</span>
+                </a>
+                <div class="site-nav-links">
+                    <a class="nav-link" href="solutions/">Lösungen</a>
+                    <a class="nav-link" href="pricing/">Preise</a>
+                    <a class="nav-link" href="about/">Über uns</a>
+                    <a class="nav-link" href="contact/">Kontakt</a>
+                    <a class="nav-link" href="faq/">FAQ</a>
                 </div>
-                <span class="font-semibold tracking-tight text-white hidden md:block">Simonic Tech Solutions</span>
+                <button class="primary-cta site-nav-cta" type="button" data-booking-trigger>Erstgespräch buchen</button>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-menu" data-nav-toggle>
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                </button>
             </div>
-
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="javascript:void(0)" onclick="navigateTo('solutions')" class="nav-link">Lösungen</a>
-                <a href="javascript:void(0)" onclick="navigateTo('pricing')" class="nav-link">Preise</a>
-                <a href="javascript:void(0)" onclick="navigateTo('about')" class="nav-link">Über uns</a>
-                <a href="javascript:void(0)" onclick="navigateTo('contact')" class="nav-link">Kontakt</a>
+            <div class="site-nav-mobile glass-surface" id="site-nav-menu" data-nav-menu hidden>
+                <div class="site-nav-mobile-links">
+                    <a class="nav-link" href="solutions/">Lösungen</a>
+                    <a class="nav-link" href="pricing/">Preise</a>
+                    <a class="nav-link" href="about/">Über uns</a>
+                    <a class="nav-link" href="contact/">Kontakt</a>
+                    <a class="nav-link" href="faq/">FAQ</a>
+                </div>
+                <button class="primary-cta" type="button" data-booking-trigger>Erstgespräch buchen</button>
             </div>
-
-            <button onclick="openBooking()" class="primary-cta px-5 py-2.5 rounded-xl text-sm font-semibold">
-                Erstgespräch buchen
-            </button>
         </div>
     </nav>
 
-    <main id="content-area" class="pt-32 pb-20"></main>
-
-    <footer class="border-t border-white/5 bg-[#05070a] py-20 px-6 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
-            <div class="col-span-1 md:col-span-2">
-                <div class="flex items-center gap-2 mb-6">
-                    <div class="w-6 h-6 bg-white/10 rounded flex items-center justify-center border border-white/10">
-                        <span class="text-[10px] font-bold text-cyan-400">STS</span>
+    <main class="sts-page">
+        <div class="sts-page-inner section-stack">
+            <section class="hero-grid">
+                <div class="reveal">
+                    <span class="section-label">Simonic Tech Solutions</span>
+                    <h1 class="hero-title">Wenn alles an einer Person hängt, fehlt kein Tool. <span class="hero-accent">Es fehlt Struktur.</span></h1>
+                    <p class="lead mb-8">Digitale Zustände wirken oft vorhanden. Kritisch wird es dort, wo intern Klarheit, Zuständigkeit und Kontrolle fehlen.</p>
+                    <div class="hero-actions">
+                        <button class="primary-cta" type="button" data-booking-trigger>Erstgespräch buchen</button>
+                        <a class="secondary-cta" href="solutions/">Leistungen ansehen</a>
                     </div>
-                    <span class="font-bold text-white uppercase tracking-wider">Simonic Tech Solutions</span>
                 </div>
-                <p class="text-gray-400 max-w-sm mb-4 leading-relaxed">Digitale Systemumsetzung für klare Zuständigkeiten, Zugriffe und belastbare Abläufe.</p>
-                <p class="text-cyan-500/60 text-[10px] font-mono uppercase tracking-[0.2em]">Für verantwortungsnahe und regulierte Umfelder.</p>
-            </div>
+                <div class="reveal glass-surface terminal-window">
+                    <div class="terminal-bar">
+                        <div class="terminal-lights">
+                            <span class="terminal-light terminal-light--red"></span>
+                            <span class="terminal-light terminal-light--amber"></span>
+                            <span class="terminal-light terminal-light--green"></span>
+                        </div>
+                        <div class="terminal-title">STS / SYSTEM</div>
+                    </div>
+                    <div class="terminal-screen" data-terminal></div>
+                    <div class="terminal-scanline"></div>
+                </div>
+            </section>
 
-            <div>
-                <h4 class="text-white font-semibold mb-6 text-sm uppercase tracking-widest">Navigation</h4>
-                <div class="flex flex-col gap-4 text-sm text-gray-500">
-                    <a href="javascript:void(0)" onclick="navigateTo('solutions')" class="hover:text-cyan-400 transition-colors">Lösungen</a>
-                    <a href="javascript:void(0)" onclick="navigateTo('pricing')" class="hover:text-cyan-400 transition-colors">Preise</a>
-                    <a href="javascript:void(0)" onclick="navigateTo('about')" class="hover:text-cyan-400 transition-colors">Über uns</a>
-                    <a href="javascript:void(0)" onclick="navigateTo('contact')" class="hover:text-cyan-400 transition-colors">Kontakt</a>
+            <section class="reveal">
+                <span class="section-label">Das Problem</span>
+                <h2 class="section-title">Digital wirkt nach außen oft vorhanden. Intern fehlt trotzdem Klarheit.</h2>
+                <p class="section-copy mb-12">Die meisten Unternehmen haben längst Website, Cloud, Freigaben, gemeinsame Ablagen und laufende digitale Prozesse. Kritisch wird es dort, wo Zuständigkeiten gewachsen sind und Änderungen mehr Unsicherheit als Ordnung erzeugen.</p>
+                <div class="cards-grid">
+                    <article class="card glass-surface">
+                        <span class="eyebrow-code">ISSUE_01</span>
+                        <h3>Unklare Zuständigkeiten</h3>
+                        <p class="muted">Zugriffe, Freigaben und Abläufe sind über die Zeit gewachsen. Im Alltag funktioniert es irgendwie, aber niemand hat den vollständigen Überblick.</p>
+                    </article>
+                    <article class="card glass-surface">
+                        <span class="eyebrow-code">ISSUE_02</span>
+                        <h3>Abhängigkeit von Einzelpersonen</h3>
+                        <p class="muted">Sobald jemand ausfällt oder wechselt, wird sichtbar, wie viel Wissen nicht im System, sondern nur in Köpfen liegt.</p>
+                    </article>
+                    <article class="card glass-surface">
+                        <span class="eyebrow-code">ISSUE_03</span>
+                        <h3>Gewachsene Zugriffe</h3>
+                        <p class="muted">Rechte wurden ergänzt, weitergegeben oder nie sauber bereinigt. Wer worauf Zugriff hat, lässt sich intern oft nicht klar erklären.</p>
+                    </article>
                 </div>
-            </div>
+            </section>
 
-            <div>
-                <h4 class="text-white font-semibold mb-6 text-sm uppercase tracking-widest">Rechtliches</h4>
-                <div class="flex flex-col gap-4 text-sm text-gray-500">
-                    <a href="javascript:void(0)" onclick="navigateTo('legal-imprint')" class="hover:text-cyan-400 transition-colors">Impressum</a>
-                    <a href="javascript:void(0)" onclick="navigateTo('legal-privacy')" class="hover:text-cyan-400 transition-colors">Datenschutz</a>
-                    <a href="javascript:void(0)" onclick="navigateTo('legal-cookies')" class="hover:text-cyan-400 transition-colors">Cookie-Richtlinie</a>
-                    <a href="javascript:void(0)" onclick="navigateTo('legal-agb')" class="hover:text-cyan-400 transition-colors">AGB</a>
+            <section class="two-column">
+                <div class="reveal">
+                    <span class="section-label">So arbeitet STS</span>
+                    <h2 class="section-title">Nicht mit allgemeiner IT-Betreuung. Sondern mit klarer technischer Systemumsetzung.</h2>
+                    <p class="section-copy mb-8">Ausgangspunkt ist immer ein konkretes digitales Problem. STS macht sichtbar, was nicht sauber funktioniert, ordnet den Zustand dahinter ein und bringt digitale Strukturen wieder in eine Form, die im Alltag nachvollziehbar und belastbar funktioniert.</p>
+                    <div class="glass-surface card">
+                        <p class="mb-0">STS verkauft keine Software und übernimmt keine klassische IT-Betreuung. Entscheidend ist, dass digitale Strukturen, Zugriffe und Verantwortlichkeiten wieder sauber funktionieren.</p>
+                    </div>
                 </div>
-            </div>
+                <div class="reveal phase-stack">
+                    <article class="card glass-surface phase-card"><span class="eyebrow-code">Phase 01</span><h3>Problem sichtbar machen</h3><p class="muted">Am Anfang steht kein abstraktes Modell, sondern ein konkreter Zustand, der Reibung oder Unklarheit erzeugt.</p></article>
+                    <article class="card glass-surface phase-card"><span class="eyebrow-code">Phase 02</span><h3>Zustand dahinter verstehen</h3><p class="muted">Danach wird sichtbar gemacht, welche Struktur, welche Zuständigkeiten und welche Zugriffslogik den aktuellen Zustand tragen.</p></article>
+                    <article class="card glass-surface phase-card"><span class="eyebrow-code">Phase 03</span><h3>Struktur sauber ordnen</h3><p class="muted">Digitale Zuständigkeiten, Ablagen, Zugriffe und Arbeitslogiken werden in eine Form gebracht, die verständlich und technisch sauber ist.</p></article>
+                    <article class="card glass-surface phase-card"><span class="eyebrow-code">Phase 04</span><h3>Belastbaren Betrieb herstellen</h3><p class="muted">Am Ende steht keine lose Änderungssammlung, sondern ein Zustand, der bei Übergaben, Ausfällen und Veränderungen besser funktioniert.</p></article>
+                </div>
+            </section>
+
+            <section class="reveal">
+                <span class="section-label">Für wen</span>
+                <h2 class="section-title">Dort, wo digitale Struktur keine Option ist, sondern Pflicht.</h2>
+                <p class="section-copy mb-12">STS ist dort relevant, wo Zuständigkeiten, Zugriffe, Übergaben und operative Stabilität nicht vom Zufall oder von Einzelpersonen abhängen dürfen.</p>
+                <div class="cards-grid cards-grid--five">
+                    <article class="card glass-surface industry-card"><span class="eyebrow-code">Vertikal 01</span><h3>Rechtsanwaltskanzleien</h3><p class="muted mb-0">Sensible Mandatsabläufe und klare Zuständigkeiten.</p></article>
+                    <article class="card glass-surface industry-card"><span class="eyebrow-code">Vertikal 02</span><h3>Steuerberatungen</h3><p class="muted mb-0">Gewachsene Freigaben, Fristen und operative Ordnung.</p></article>
+                    <article class="card glass-surface industry-card"><span class="eyebrow-code">Vertikal 03</span><h3>Notariate</h3><p class="muted mb-0">Nachvollziehbare Übergaben und belastbare digitale Struktur.</p></article>
+                    <article class="card glass-surface industry-card"><span class="eyebrow-code">Vertikal 04</span><h3>Arztpraxen und medizinische Einrichtungen</h3><p class="muted mb-0">Sensible Systeme mit hoher Anforderung an Klarheit und Zugriff.</p></article>
+                    <article class="card glass-surface industry-card"><span class="eyebrow-code">Vertikal 05</span><h3>Verantwortungsnahe KMUs</h3><p class="muted mb-0">Dort, wo digitale Stabilität nicht an Einzelpersonen hängen darf.</p></article>
+                </div>
+            </section>
+
+            <section class="reveal">
+                <span class="section-label">Das Ergebnis</span>
+                <h2 class="section-title">Ein digitaler Zustand, der nicht nur vorhanden ist, sondern sauber funktioniert.</h2>
+                <p class="section-copy mb-12">Am Ende geht es nicht um mehr Tools oder mehr Komplexität. Es geht um eine digitale Umgebung, die nachvollziehbar aufgebaut ist, bei Änderungen nicht auseinanderfällt und im Alltag deutlich besser funktioniert.</p>
+                <div class="cards-grid cards-grid--two">
+                    <article class="card glass-surface">
+                        <h3>Klare Zuständigkeiten</h3>
+                        <p class="muted">Es ist nachvollziehbar, wer wofür zuständig ist, wo Verantwortung liegt und wie digitale Abläufe tatsächlich organisiert sind.</p>
+                    </article>
+                    <article class="card glass-surface">
+                        <h3>Weniger Abhängigkeit von Einzelpersonen</h3>
+                        <p class="muted">Wissen, Struktur und digitale Ordnung hängen nicht mehr ausschließlich an einzelnen Personen, sondern werden robuster im Betrieb.</p>
+                    </article>
+                    <article class="card glass-surface">
+                        <h3>Saubere Zugriffe</h3>
+                        <p class="muted">Zuständigkeiten, Zugänge und operative Abläufe müssen nicht erst zusammengesucht werden. Der Zustand ist verständlich und greifbar.</p>
+                    </article>
+                    <article class="card glass-surface">
+                        <h3>Stabilität bei Übergaben und Änderungen</h3>
+                        <p class="muted">Neue Mitarbeiter, Vertretungen, externe Partner oder Systemänderungen führen nicht automatisch zu Unsicherheit.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="reveal text-center max-w-4xl mx-auto">
+                <span class="section-label">Vertrauen</span>
+                <h2 class="section-title">Vertrauen entsteht dort, wo Struktur, Verantwortung und Umsetzung zusammenpassen.</h2>
+                <p class="section-copy mx-auto mb-12">Gerade dort, wo digitale Zustände sensibel, gewachsen oder verantwortungskritisch sind, reicht gute Absicht nicht aus. Entscheidend ist, dass sauber gearbeitet, klar abgegrenzt und technisch nachvollziehbar umgesetzt wird.</p>
+                <div class="cards-grid cards-grid--five">
+                    <article class="card glass-surface principle-card"><span class="eyebrow-code">Prinzip 01</span><p class="mb-0">Klare Abgrenzung statt allgemeiner IT-Versprechen.</p></article>
+                    <article class="card glass-surface principle-card"><span class="eyebrow-code">Prinzip 02</span><p class="mb-0">Dokumentierte Standards statt improvisierter Entscheidungen.</p></article>
+                    <article class="card glass-surface principle-card"><span class="eyebrow-code">Prinzip 03</span><p class="mb-0">Fokus auf Eigentümerschaft, Zuständigkeit und Kontrolle.</p></article>
+                    <article class="card glass-surface principle-card"><span class="eyebrow-code">Prinzip 04</span><p class="mb-0">Technische Umsetzung mit Struktur, nicht nur Empfehlungen.</p></article>
+                    <article class="card glass-surface principle-card"><span class="eyebrow-code">Prinzip 05</span><p class="mb-0">Arbeit in regulierten oder verantwortungsnahen Umfeldern.</p></article>
+                </div>
+            </section>
+
+            <section class="reveal max-w-4xl mx-auto">
+                <div class="shell-container">
+                    <div class="shell-topbar">
+                        <div class="terminal-lights">
+                            <span class="terminal-light terminal-light--red"></span>
+                            <span class="terminal-light terminal-light--amber"></span>
+                            <span class="terminal-light terminal-light--green"></span>
+                        </div>
+                        <div class="shell-topbar-title">STS_FAQ_PREVIEW</div>
+                    </div>
+                    <div class="faq-shell-item">
+                        <button class="faq-shell-header" type="button">
+                            <span class="faq-shell-title">&gt; Was genau macht STS?</span>
+                            <span class="faq-shell-plus" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-shell-content">
+                            <div class="faq-shell-content-inner">STS bringt digitale Umgebungen in einen Zustand, in dem Zuständigkeiten, Zugriffe, Übergaben und operative Abläufe wieder klar und belastbar sind. Der Einstieg erfolgt über ein konkretes Problem, die Arbeit darunter ist strukturierte Umsetzung, nicht bloße Beratung.</div>
+                        </div>
+                    </div>
+                    <div class="faq-shell-item">
+                        <button class="faq-shell-header" type="button">
+                            <span class="faq-shell-title">&gt; Ist das IT-Support oder ersetzt STS unseren IT-Dienstleister?</span>
+                            <span class="faq-shell-plus" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-shell-content">
+                            <div class="faq-shell-content-inner">Nein. STS ist keine klassische IT-Betreuung und ersetzt keinen laufenden Support. STS arbeitet dort, wo digitale Zustände strukturell unklar geworden sind und wieder in eine saubere Form gebracht werden müssen.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center faq-preview-link">
+                    <a class="secondary-cta" href="faq/">Alle Fragen anzeigen</a>
+                </div>
+            </section>
+
+            <section class="reveal text-center max-w-4xl mx-auto">
+                <div class="glass-surface card section-cta section-cta--accent">
+                    <h2 class="section-title">Bereit für mehr Klarheit im digitalen Betrieb?</h2>
+                    <p class="section-copy mx-auto mb-8">Im strukturierten Erstgespräch klären wir, ob konkreter Handlungsbedarf besteht und wo ein sinnvoller Startpunkt liegt.</p>
+                    <button class="primary-cta" type="button" data-booking-trigger>Erstgespräch buchen</button>
+                </div>
+            </section>
         </div>
+    </main>
 
-        <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-[10px] font-mono text-gray-600">© 2026 STS_SYSTEM_CORE. BUILD_VER: 2.1.0-LIQUID</p>
-            <button onclick="openBooking()" class="primary-cta px-6 py-2 rounded-lg text-xs">
-                Erstgespräch buchen
-            </button>
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-grid">
+                <div>
+                    <div class="brand-lockup brand-lockup--footer mb-6">
+                        <img class="brand-logo brand-logo--footer" src="assets/logo/sts-logo.svg" alt="STS Logo">
+                        <span class="brand-name">Simonic Tech Solutions</span>
+                    </div>
+                    <p class="section-copy footer-copy">Digitale Systemumsetzung für klare Zuständigkeiten, Zugriffe und belastbare Abläufe.</p>
+                    <p class="footer-meta mb-0">Für verantwortungsnahe und regulierte Umfelder.</p>
+                    <p class="muted footer-note mb-0">Kontakt: <a class="nav-link" href="mailto:david@simonictech.com">david@simonictech.com</a></p>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Navigation</h3>
+                    <div class="footer-list">
+                        <a class="nav-link" href="solutions/">Lösungen</a>
+                        <a class="nav-link" href="pricing/">Preise</a>
+                        <a class="nav-link" href="about/">Über uns</a>
+                        <a class="nav-link" href="contact/">Kontakt</a>
+                        <a class="nav-link" href="faq/">FAQ</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Rechtliches</h3>
+                    <div class="footer-list footer-list--legal">
+                        <a class="nav-link" href="impressum/">Impressum</a>
+                        <a class="nav-link" href="datenschutz/">Datenschutzerklärung</a>
+                        <a class="nav-link" href="agb/">AGB</a>
+                        <a class="nav-link" href="cookies/">Cookie-Richtlinie</a>
+                        <button class="nav-link consent-footer-link" type="button" data-open-cookie-settings>Cookie-Einstellungen</button>
+                        <button class="primary-cta" type="button" data-booking-trigger>Erstgespräch buchen</button>
+                    </div>
+                </div>
+            </div>
+            <div class="site-footer-bottom">
+                <p class="muted mb-0">© 2026 Simonic Tech Solutions</p>
+                <p class="muted mb-0">Digitale Systemumsetzung für klare Zustände.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="current-live/js/app-live.js"></script>
+    <script defer src="scripts/booking.js"></script>
+    <script defer src="scripts/nav.js"></script>
+    <script defer src="scripts/transitions.js"></script>
+    <script defer src="scripts/effects.js"></script>
+    <script defer src="scripts/faq.js"></script>
+    <script defer src="scripts/terminal.js"></script>
 </body>
 </html>
+
+

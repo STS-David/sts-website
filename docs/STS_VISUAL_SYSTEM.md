@@ -1,4 +1,4 @@
-# STS Visual System
+﻿# STS Visual System
 
 ## Identity
 Premium technical execution layer.
@@ -26,3 +26,4 @@ Dark, serious, structured, controlled.
 - compliance cliche visuals
 - warm beige or soft pastel systems
 - blob shapes
+

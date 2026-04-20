@@ -1,4 +1,4 @@
-# STS Project Master
+﻿# STS Project Master
 
 ## Current State
 The live website is a temporary speed-launch version inside WordPress.
@@ -39,3 +39,4 @@ Turn the STS website into:
 1. company website
 2. portfolio flagship
 3. reusable client-site framework
+
