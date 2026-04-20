@@ -303,7 +303,7 @@
 }
 
 .consent-root.is-visible {
-    pointer-events: auto;
+    pointer-events: none;
 }
 
 .consent-backdrop {
@@ -312,6 +312,7 @@
     background: rgba(4, 7, 12, 0.56);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    pointer-events: none;
 }
 
 .consent-banner,
@@ -325,12 +326,13 @@
     box-shadow:
         0 36px 120px -52px rgba(0, 0, 0, 0.94),
         0 12px 48px -30px rgba(34, 211, 238, 0.14);
+    pointer-events: auto;
 }
 
 .consent-banner {
     bottom: 1.35rem;
     transform: translateX(-50%);
-    padding: 1.35rem 1.35rem 1.2rem;
+    padding: 1.22rem 1.2rem 1.08rem;
 }
 
 .consent-panel {
@@ -350,6 +352,11 @@
 .consent-panel-head,
 .consent-category-list {
     margin-bottom: 1rem;
+}
+
+.consent-banner .section-label,
+.consent-panel .section-label {
+    margin-bottom: 0.95rem;
 }
 
 .consent-title {
@@ -386,7 +393,7 @@
 .consent-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.65rem;
     align-items: center;
 }
 
@@ -402,7 +409,7 @@
 .consent-link-button {
     appearance: none;
     border: 0;
-    padding: 0.45rem 0;
+    padding: 0.35rem 0;
     background: transparent;
     cursor: pointer;
     color: rgba(186, 247, 255, 0.94);
@@ -1574,16 +1581,16 @@ textarea.contact-input {
 
     .consent-banner,
     .consent-panel {
-        width: min(calc(100% - 1rem), 43rem);
+        width: min(calc(100% - 0.85rem), 31rem);
     }
 
     .consent-banner {
-        bottom: 0.5rem;
-        padding: 1.1rem 1rem 1rem;
+        bottom: 0.45rem;
+        padding: 0.95rem 0.92rem 0.9rem;
     }
 
     .consent-panel {
-        padding: 1rem;
+        padding: 0.95rem;
         max-height: calc(100vh - 1rem);
     }
 
@@ -1596,6 +1603,27 @@ textarea.contact-input {
     .consent-action,
     .consent-link-button {
         width: 100%;
+    }
+
+    .consent-banner-copy,
+    .consent-panel-head,
+    .consent-category-list {
+        margin-bottom: 0.8rem;
+    }
+
+    .consent-title {
+        font-size: 1.02rem;
+    }
+
+    .consent-body,
+    .consent-helper,
+    .consent-category-copy {
+        font-size: 0.88rem;
+        line-height: 1.56;
+    }
+
+    .consent-category {
+        padding: 0.82rem 0.85rem;
     }
 
     .consent-toolbar {
@@ -1638,13 +1666,35 @@ textarea.contact-input {
     }
 
     .consent-title {
-        font-size: 1.04rem;
+        font-size: 0.98rem;
     }
 
     .consent-body,
     .consent-helper,
     .consent-category-copy {
-        font-size: 0.88rem;
+        font-size: 0.84rem;
+        line-height: 1.52;
+    }
+
+    .consent-banner {
+        bottom: 0.35rem;
+        padding: 0.88rem 0.82rem 0.82rem;
+    }
+
+    .consent-panel {
+        padding: 0.82rem;
+    }
+
+    .consent-action {
+        min-width: 0;
+    }
+
+    .consent-toolbar {
+        left: 0.6rem;
+        right: 0.6rem;
+        bottom: 0.6rem;
+        padding: 0.72rem 0.88rem;
+        font-size: 0.82rem;
     }
 
     .industry-card h3,
