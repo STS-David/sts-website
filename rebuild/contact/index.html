@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | STS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/tokens.css">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/utilities.css">
+    <script src="../scripts/consent-bootstrap.js"></script>
+    <script defer src="../scripts/consent.js"></script>
+</head>
+<body class="sts-app">
+    <div class="transition-overlay is-active" data-transition-overlay></div>
+    <div class="bg-field"></div>
+    <nav class="site-nav" data-nav-root><div class="site-nav-inner"><div class="site-nav-shell glass-surface"><a class="brand-lockup" href="../" aria-label="Simonic Tech Solutions Startseite"><img class="brand-logo" src="../assets/logo/sts-logo.svg" alt="STS Logo"><span class="brand-name">Simonic Tech Solutions</span></a><div class="site-nav-links"><a class="nav-link" href="../solutions/">Lösungen</a><a class="nav-link" href="../pricing/">Preise</a><a class="nav-link" href="../about/">Über uns</a><a class="nav-link" aria-current="page" href="./">Kontakt</a><a class="nav-link" href="../faq/">FAQ</a></div><button class="primary-cta site-nav-cta" type="button" data-booking-trigger>Erstgespräch buchen</button><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-menu" data-nav-toggle><span class="nav-toggle-line"></span><span class="nav-toggle-line"></span><span class="nav-toggle-line"></span></button></div><div class="site-nav-mobile glass-surface" id="site-nav-menu" data-nav-menu hidden><div class="site-nav-mobile-links"><a class="nav-link" href="../solutions/">Lösungen</a><a class="nav-link" href="../pricing/">Preise</a><a class="nav-link" href="../about/">Über uns</a><a class="nav-link" aria-current="page" href="./">Kontakt</a><a class="nav-link" href="../faq/">FAQ</a></div><button class="primary-cta" type="button" data-booking-trigger>Erstgespräch buchen</button></div></div></nav>
+    <main class="sts-page"><div class="sts-page-inner section-stack">
+        <section class="reveal">
+            <span class="section-label">Kontakt</span>
+            <h1 class="page-title">Kontakt für ein strukturiertes Erstgespräch.</h1>
+            <p class="lead">Wenn digitale Zustände intern unklar geworden sind, klären wir im ersten Schritt, ob tatsächlich Handlungsbedarf besteht und welcher Startpunkt sinnvoll ist.</p>
+        </section>
+        <section class="two-column">
+            <div class="reveal">
+                <h2 class="section-title">Erstgespräch</h2>
+                <p class="section-copy mb-8">Das Erstgespräch dient nicht dazu, möglichst viel zu verkaufen, sondern den Ausgangszustand sauber einzuordnen. Wenn das Thema operativ bleibt, bleibt auch der Einstieg klein. Wenn es strukturell ist, wird das klar benannt.</p>
+                <button class="primary-cta mb-12" type="button" data-booking-trigger>Erstgespräch buchen</button>
+                <h2 class="section-title">Was nach der Anfrage passiert</h2>
+                <div class="step-list">
+                    <article class="step-item"><span class="step-number">1</span><span>Kurze Sichtung des Anliegens</span></article>
+                    <article class="step-item"><span class="step-number">2</span><span>Einordnung, ob ein strukturiertes Erstgespräch sinnvoll ist</span></article>
+                    <article class="step-item"><span class="step-number">3</span><span>Rückmeldung mit nächstem Schritt</span></article>
+                </div>
+            </div>
+            <div class="reveal glass-surface card contact-form-card">
+                <h2 class="section-title">Anfrage senden</h2>
+                <p class="section-copy mb-8">Beschreiben Sie kurz, wo aktuell Unklarheit, Reibung oder struktureller Handlungsbedarf besteht. Wir melden uns mit einem klaren nächsten Schritt zurück.</p>
+                <form class="form-grid" data-contact-form action="https://submit-form.com/rmvCA6Yil" method="POST" novalidate>
+                    <input type="text" name="_honeypot" tabindex="-1" autocomplete="off" hidden>
+                    <div class="form-row">
+                        <input class="contact-input" type="text" placeholder="Name" name="name" required>
+                        <input class="contact-input" type="text" placeholder="Unternehmen" name="company">
+                    </div>
+                    <input class="contact-input" type="email" placeholder="E-Mail" name="email" required>
+                    <input class="contact-input" type="text" placeholder="Telefon (optional)" name="phone">
+                    <textarea class="contact-input" rows="4" placeholder="Worum geht es aktuell?" name="issue" required></textarea>
+                    <textarea class="contact-input" rows="4" placeholder="Welche Systeme oder Abläufe sind betroffen?" name="systems"></textarea>
+                    <label class="privacy-check">
+                        <input class="privacy-check-input" type="checkbox" name="privacy" required>
+                        <span class="privacy-check-box" aria-hidden="true"></span>
+                        <span class="privacy-check-copy">Ich habe die <a class="nav-link" href="../datenschutz/">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.</span>
+                    </label>
+                    <button class="primary-cta" type="submit">Anfrage senden</button>
+                    <p class="contact-status is-info mb-0" data-contact-status aria-live="polite">Schildern Sie kurz Ihr Anliegen. Wir melden uns mit einem sinnvollen nächsten Schritt zurück.</p>
+                </form>
+                <p class="contact-fallback muted mb-0">Oder direkt per E-Mail an <a class="nav-link" href="mailto:david@simonictech.com">david@simonictech.com</a></p>
+            </div>
+        </section>
+    </div></main>
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-grid">
+                <div>
+                    <div class="brand-lockup brand-lockup--footer mb-6">
+                        <img class="brand-logo brand-logo--footer" src="../assets/logo/sts-logo.svg" alt="STS Logo">
+                        <span class="brand-name">Simonic Tech Solutions</span>
+                    </div>
+                    <p class="section-copy footer-copy">Digitale Systemumsetzung für klare Zuständigkeiten, Zugriffe und belastbare Abläufe.</p>
+                    <p class="footer-meta mb-0">Für verantwortungsnahe und regulierte Umfelder.</p>
+                    <p class="muted footer-note mb-0">Kontakt: <a class="nav-link" href="mailto:david@simonictech.com">david@simonictech.com</a></p>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Navigation</h3>
+                    <div class="footer-list">
+                        <a class="nav-link" href="../solutions/">Lösungen</a>
+                        <a class="nav-link" href="../pricing/">Preise</a>
+                        <a class="nav-link" href="../about/">Über uns</a>
+                        <a class="nav-link" href="./">Kontakt</a>
+                        <a class="nav-link" href="../faq/">FAQ</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Rechtliches</h3>
+                    <div class="footer-list footer-list--legal">
+                        <a class="nav-link" href="../impressum/">Impressum</a>
+                        <a class="nav-link" href="../datenschutz/">Datenschutzerklärung</a>
+                        <a class="nav-link" href="../agb/">AGB</a>
+                        <a class="nav-link" href="../cookies/">Cookie-Richtlinie</a>
+                        <button class="nav-link consent-footer-link" type="button" data-open-cookie-settings>Cookie-Einstellungen</button>
+                        <button class="primary-cta" type="button" data-booking-trigger>Erstgespräch buchen</button>
+                    </div>
+                </div>
+            </div>
+            <div class="site-footer-bottom">
+                <p class="muted mb-0">© 2026 Simonic Tech Solutions</p>
+                <p class="muted mb-0">Digitale Systemumsetzung für klare Zustände.</p>
+            </div>
+        </div>
+    </footer>
+    <script defer src="../scripts/booking.js"></script><script defer src="../scripts/nav.js"></script><script defer src="../scripts/transitions.js"></script><script defer src="../scripts/effects.js"></script><script defer src="../scripts/contact.js"></script>
+</body>
+</html>
+
+
