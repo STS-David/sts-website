@@ -211,6 +211,11 @@
     align-content: start;
 }
 
+.footer-list--legal .primary-cta {
+    justify-self: start;
+    margin-top: 0.15rem;
+}
+
 .footer-meta {
     color: var(--sts-text-muted);
     font-family: "Fira Code", monospace;
@@ -303,7 +308,7 @@
 }
 
 .consent-root.is-visible {
-    pointer-events: none;
+    pointer-events: auto;
 }
 
 .consent-backdrop {
@@ -312,7 +317,6 @@
     background: rgba(4, 7, 12, 0.56);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    pointer-events: none;
 }
 
 .consent-banner,
@@ -326,13 +330,12 @@
     box-shadow:
         0 36px 120px -52px rgba(0, 0, 0, 0.94),
         0 12px 48px -30px rgba(34, 211, 238, 0.14);
-    pointer-events: auto;
 }
 
 .consent-banner {
     bottom: 1.35rem;
     transform: translateX(-50%);
-    padding: 1.22rem 1.2rem 1.08rem;
+    padding: 1.35rem 1.35rem 1.2rem;
 }
 
 .consent-panel {
@@ -352,11 +355,6 @@
 .consent-panel-head,
 .consent-category-list {
     margin-bottom: 1rem;
-}
-
-.consent-banner .section-label,
-.consent-panel .section-label {
-    margin-bottom: 0.95rem;
 }
 
 .consent-title {
@@ -393,7 +391,7 @@
 .consent-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.65rem;
+    gap: 0.75rem;
     align-items: center;
 }
 
@@ -409,7 +407,7 @@
 .consent-link-button {
     appearance: none;
     border: 0;
-    padding: 0.35rem 0;
+    padding: 0.45rem 0;
     background: transparent;
     cursor: pointer;
     color: rgba(186, 247, 255, 0.94);
@@ -1183,56 +1181,134 @@
 .price-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.5rem;
+    gap: 1.3rem;
 }
 
 .price-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    align-content: start;
+    gap: 1.15rem;
     min-height: 100%;
+    padding: 1.45rem 1.35rem 1.3rem;
+    border-color: rgba(255, 255, 255, 0.06);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0.01)),
+        rgba(9, 12, 18, 0.92);
+    box-shadow:
+        0 26px 70px -46px rgba(0, 0, 0, 0.86),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.price-card-head {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.price-step {
+    margin-bottom: 0;
+    opacity: 0.78;
+}
+
+.price-intro {
+    margin: 0;
+    color: rgba(192, 202, 216, 0.82);
+    font-size: 0.88rem;
+    line-height: 1.62;
+    max-width: 28ch;
+}
+
+.price-value-block {
+    display: grid;
+    gap: 0.45rem;
+    padding: 0.95rem 0 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.045);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.price-value-label {
+    color: rgba(180, 197, 214, 0.74);
+    font-family: "Fira Code", monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
 }
 
 .price-card--featured {
-    border-color: rgba(103, 232, 249, 0.5);
+    border-color: rgba(103, 232, 249, 0.34);
     background:
-        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.24), transparent 46%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.018)),
-        rgba(7, 18, 31, 0.96);
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.18), transparent 50%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.014)),
+        rgba(7, 18, 31, 0.95);
     box-shadow:
-        0 42px 92px -32px rgba(6, 182, 212, 0.86),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        inset 0 0 0 1px rgba(103, 232, 249, 0.08);
-    transform: translateY(-0.95rem) scale(1.03);
+        0 34px 86px -38px rgba(6, 182, 212, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 0 0 1px rgba(103, 232, 249, 0.05);
+    transform: translateY(-0.6rem);
 }
 
 .price-card--muted {
     background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.003)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0.004)),
         rgba(10, 12, 16, 0.92);
-    border-color: rgba(255, 255, 255, 0.03);
-    box-shadow: 0 18px 44px -38px rgba(0, 0, 0, 0.78);
-    opacity: 0.8;
+    border-color: rgba(255, 255, 255, 0.045);
+    box-shadow: 0 20px 54px -42px rgba(0, 0, 0, 0.78);
 }
 
 .price-value {
     margin: 0;
+    color: var(--sts-text-strong);
+    font-family: "Inter", sans-serif;
+    font-size: clamp(1.95rem, 2.7vw, 2.65rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.05em;
+    text-wrap: balance;
+}
+
+.price-log {
+    display: grid;
+    gap: 0.55rem;
+    align-content: start;
+    padding: 1rem 1rem 0.95rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.006)),
+        rgba(255, 255, 255, 0.012);
+}
+
+.price-log-label {
     color: var(--sts-accent);
     font-family: "Fira Code", monospace;
-    font-size: clamp(1.9rem, 2.6vw, 2.4rem);
-    line-height: 1.1;
+    font-size: 0.67rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
 }
 
-.price-scope {
-    padding-top: 1.25rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-    margin-bottom: 0.5rem;
-    flex: 1;
+.price-log p {
+    color: rgba(184, 195, 210, 0.82);
+    font-size: 0.77rem;
+    line-height: 1.62;
 }
 
-.price-scope p {
-    font-size: 0.78rem;
-    line-height: 1.65;
+.price-card-footer {
+    display: grid;
+    gap: 0.95rem;
+    align-content: end;
+}
+
+.price-note {
+    color: rgba(168, 180, 196, 0.74);
+    font-size: 0.77rem;
+    line-height: 1.58;
+    max-width: 33ch;
+}
+
+.price-card .primary-cta,
+.price-card .secondary-cta {
+    width: 100%;
+    margin-top: 0.15rem;
 }
 
 .step-list {
@@ -1299,10 +1375,10 @@ textarea.contact-input {
 }
 
 .contact-form-card {
-    max-width: 47rem;
+    max-width: 44rem;
     width: 100%;
-    justify-self: stretch;
-    padding: 3.15rem 3.1rem 2.9rem;
+    justify-self: center;
+    padding: 3.05rem 2.8rem 2.8rem;
 }
 
 .contact-form-card .section-title {
@@ -1511,8 +1587,9 @@ textarea.contact-input {
     }
 
     .contact-form-card {
-        max-width: none;
-        padding: 2.15rem 1.7rem 1.95rem;
+        width: min(100%, 34rem);
+        max-width: 34rem;
+        padding: 2rem 1.45rem 1.85rem;
     }
 }
 
@@ -1527,6 +1604,12 @@ textarea.contact-input {
     .section-cta .secondary-cta,
     .footer-list .primary-cta {
         width: 100%;
+    }
+
+    .footer-list--legal .primary-cta {
+        width: auto;
+        min-width: 0;
+        padding-inline: 1rem;
     }
 
     .cards-grid--five {
@@ -1566,8 +1649,36 @@ textarea.contact-input {
         min-height: auto;
     }
 
+    .price-grid {
+        gap: 1rem;
+    }
+
+    .price-card {
+        padding: 1.2rem 1rem 1rem;
+        gap: 0.95rem;
+    }
+
+    .price-intro {
+        max-width: none;
+        font-size: 0.84rem;
+    }
+
+    .price-value {
+        font-size: clamp(1.8rem, 8vw, 2.2rem);
+    }
+
+    .price-log {
+        padding: 0.9rem 0.85rem 0.82rem;
+    }
+
+    .price-card .primary-cta,
+    .price-card .secondary-cta {
+        width: 100%;
+    }
+
     .contact-form-card {
-        padding: 1.7rem 1.15rem 1.55rem;
+        width: min(100%, 31.5rem);
+        padding: 1.6rem 0.95rem 1.45rem;
     }
 
     .contact-status {
@@ -1581,16 +1692,16 @@ textarea.contact-input {
 
     .consent-banner,
     .consent-panel {
-        width: min(calc(100% - 0.85rem), 31rem);
+        width: min(calc(100% - 1rem), 43rem);
     }
 
     .consent-banner {
-        bottom: 0.45rem;
-        padding: 0.95rem 0.92rem 0.9rem;
+        bottom: 0.5rem;
+        padding: 1.1rem 1rem 1rem;
     }
 
     .consent-panel {
-        padding: 0.95rem;
+        padding: 1rem;
         max-height: calc(100vh - 1rem);
     }
 
@@ -1603,27 +1714,6 @@ textarea.contact-input {
     .consent-action,
     .consent-link-button {
         width: 100%;
-    }
-
-    .consent-banner-copy,
-    .consent-panel-head,
-    .consent-category-list {
-        margin-bottom: 0.8rem;
-    }
-
-    .consent-title {
-        font-size: 1.02rem;
-    }
-
-    .consent-body,
-    .consent-helper,
-    .consent-category-copy {
-        font-size: 0.88rem;
-        line-height: 1.56;
-    }
-
-    .consent-category {
-        padding: 0.82rem 0.85rem;
     }
 
     .consent-toolbar {
@@ -1666,35 +1756,13 @@ textarea.contact-input {
     }
 
     .consent-title {
-        font-size: 0.98rem;
+        font-size: 1.04rem;
     }
 
     .consent-body,
     .consent-helper,
     .consent-category-copy {
-        font-size: 0.84rem;
-        line-height: 1.52;
-    }
-
-    .consent-banner {
-        bottom: 0.35rem;
-        padding: 0.88rem 0.82rem 0.82rem;
-    }
-
-    .consent-panel {
-        padding: 0.82rem;
-    }
-
-    .consent-action {
-        min-width: 0;
-    }
-
-    .consent-toolbar {
-        left: 0.6rem;
-        right: 0.6rem;
-        bottom: 0.6rem;
-        padding: 0.72rem 0.88rem;
-        font-size: 0.82rem;
+        font-size: 0.88rem;
     }
 
     .industry-card h3,
