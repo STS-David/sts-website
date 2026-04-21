@@ -1187,135 +1187,163 @@
 
 .price-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.3rem;
+    grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.08fr) minmax(0, 0.96fr);
+    gap: 1.15rem;
+    align-items: start;
 }
 
 .price-card {
+    position: relative;
     display: grid;
     grid-template-rows: auto auto 1fr auto;
     align-content: start;
-    gap: 1.15rem;
+    gap: 1rem;
     min-height: 100%;
-    padding: 1.45rem 1.35rem 1.3rem;
-    border-color: rgba(255, 255, 255, 0.06);
+    padding: 1.3rem 1.25rem 1.15rem;
+    border-color: rgba(255, 255, 255, 0.055);
     background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0.01)),
-        rgba(9, 12, 18, 0.92);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.022), rgba(255, 255, 255, 0.008)),
+        rgba(8, 12, 18, 0.92);
     box-shadow:
-        0 26px 70px -46px rgba(0, 0, 0, 0.86),
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        0 24px 64px -46px rgba(0, 0, 0, 0.86),
+        inset 0 1px 0 rgba(255, 255, 255, 0.028);
+}
+
+.price-card::before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    left: 1.25rem;
+    right: 1.25rem;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(125, 211, 252, 0.18), rgba(125, 211, 252, 0.03));
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.price-card::after {
+    content: "";
+    position: absolute;
+    inset: 0.7rem;
+    border-radius: calc(var(--sts-radius-lg) - 0.7rem);
+    border: 1px solid rgba(255, 255, 255, 0.025);
+    pointer-events: none;
+    opacity: 0.85;
 }
 
 .price-card-head {
     display: grid;
-    gap: 0.7rem;
+    gap: 0.55rem;
+    padding-top: 0.6rem;
 }
 
 .price-step {
     margin-bottom: 0;
-    opacity: 0.78;
+    opacity: 0.74;
 }
 
 .price-intro {
     margin: 0;
-    color: rgba(192, 202, 216, 0.82);
-    font-size: 0.88rem;
-    line-height: 1.62;
-    max-width: 28ch;
+    color: rgba(188, 199, 214, 0.78);
+    font-size: 0.84rem;
+    line-height: 1.58;
+    max-width: 30ch;
 }
 
 .price-value-block {
     display: grid;
-    gap: 0.45rem;
-    padding: 0.95rem 0 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.045);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    gap: 0.35rem;
+    padding: 0.9rem 0 0.95rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.035);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .price-value-label {
-    color: rgba(180, 197, 214, 0.74);
+    color: rgba(176, 190, 208, 0.66);
     font-family: "Fira Code", monospace;
-    font-size: 0.66rem;
-    letter-spacing: 0.22em;
+    font-size: 0.62rem;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
 }
 
 .price-card--featured {
-    border-color: rgba(103, 232, 249, 0.34);
+    border-color: rgba(103, 232, 249, 0.28);
     background:
-        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.18), transparent 50%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.014)),
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15), transparent 52%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.012)),
         rgba(7, 18, 31, 0.95);
     box-shadow:
-        0 34px 86px -38px rgba(6, 182, 212, 0.34),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        inset 0 0 0 1px rgba(103, 232, 249, 0.05);
-    transform: translateY(-0.6rem);
+        0 36px 92px -42px rgba(6, 182, 212, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        inset 0 0 0 1px rgba(103, 232, 249, 0.045);
+    transform: translateY(-0.48rem);
 }
 
 .price-card--muted {
     background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0.004)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.014), rgba(255, 255, 255, 0.003)),
         rgba(10, 12, 16, 0.92);
-    border-color: rgba(255, 255, 255, 0.045);
-    box-shadow: 0 20px 54px -42px rgba(0, 0, 0, 0.78);
+    border-color: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 18px 48px -42px rgba(0, 0, 0, 0.78);
 }
 
 .price-value {
     margin: 0;
     color: var(--sts-text-strong);
     font-family: "Inter", sans-serif;
-    font-size: clamp(1.95rem, 2.7vw, 2.65rem);
+    font-size: clamp(2rem, 2.75vw, 2.8rem);
     font-weight: 700;
-    line-height: 1.02;
-    letter-spacing: -0.05em;
+    line-height: 0.98;
+    letter-spacing: -0.06em;
     text-wrap: balance;
 }
 
 .price-log {
     display: grid;
-    gap: 0.55rem;
+    gap: 0.48rem;
     align-content: start;
-    padding: 1rem 1rem 0.95rem;
+    padding: 0.88rem 0.92rem 0.86rem;
     border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.045);
     background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.006)),
-        rgba(255, 255, 255, 0.012);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0.005)),
+        rgba(255, 255, 255, 0.01);
 }
 
 .price-log-label {
     color: var(--sts-accent);
     font-family: "Fira Code", monospace;
-    font-size: 0.67rem;
-    letter-spacing: 0.22em;
+    font-size: 0.62rem;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
 }
 
 .price-log p {
-    color: rgba(184, 195, 210, 0.82);
-    font-size: 0.77rem;
-    line-height: 1.62;
+    color: rgba(180, 191, 206, 0.78);
+    font-size: 0.74rem;
+    line-height: 1.58;
 }
 
 .price-card-footer {
     display: grid;
-    gap: 0.95rem;
+    gap: 0.8rem;
     align-content: end;
+    padding-top: 0.1rem;
 }
 
 .price-note {
-    color: rgba(168, 180, 196, 0.74);
-    font-size: 0.77rem;
-    line-height: 1.58;
-    max-width: 33ch;
+    color: rgba(162, 174, 190, 0.72);
+    font-size: 0.74rem;
+    line-height: 1.54;
+    max-width: 32ch;
 }
 
 .price-card .primary-cta,
 .price-card .secondary-cta {
-    width: 100%;
-    margin-top: 0.15rem;
+    width: auto;
+    min-width: 11.25rem;
+    justify-self: start;
+    margin-top: 0.1rem;
 }
 
 .step-list {
@@ -1386,6 +1414,10 @@ textarea.contact-input {
     width: 100%;
     justify-self: center;
     padding: 3.05rem 2.8rem 2.8rem;
+}
+
+.site-nav-shell .brand-lockup {
+    min-width: 0;
 }
 
 .contact-form-card .section-title {
@@ -1550,6 +1582,25 @@ textarea.contact-input {
 }
 
 @media (max-width: 900px) {
+    .site-nav-shell .brand-lockup {
+        gap: 0.58rem;
+        max-width: calc(100% - 3.25rem);
+    }
+
+    .site-nav-shell .brand-name {
+        font-size: 0.94rem;
+    }
+
+    .site-nav-shell .brand-logo {
+        height: 2.02rem;
+        max-width: 1.24rem;
+    }
+
+    .nav-toggle {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+
     .hero-actions {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -1593,6 +1644,32 @@ textarea.contact-input {
         transform: none;
     }
 
+    .price-grid {
+        gap: 1rem;
+    }
+
+    .price-card {
+        padding: 1.15rem 1.08rem 1rem;
+        gap: 0.9rem;
+    }
+
+    .price-card::before {
+        top: 0.85rem;
+        left: 1.05rem;
+        right: 1.05rem;
+    }
+
+    .price-card::after {
+        inset: 0.55rem;
+    }
+
+    .price-card .primary-cta,
+    .price-card .secondary-cta {
+        width: 100%;
+        min-width: 0;
+        justify-self: stretch;
+    }
+
     .contact-form-card {
         width: min(100%, 34rem);
         max-width: 34rem;
@@ -1601,6 +1678,20 @@ textarea.contact-input {
 }
 
 @media (max-width: 640px) {
+    .site-nav-shell .brand-lockup {
+        gap: 0.5rem;
+        max-width: calc(100% - 3.05rem);
+    }
+
+    .site-nav-shell .brand-name {
+        font-size: 0.88rem;
+    }
+
+    .site-nav-shell .brand-logo {
+        height: 1.9rem;
+        max-width: 1.16rem;
+    }
+
     .hero-actions {
         grid-template-columns: 1fr;
     }
@@ -1661,21 +1752,30 @@ textarea.contact-input {
     }
 
     .price-card {
-        padding: 1.2rem 1rem 1rem;
-        gap: 0.95rem;
+        padding: 1.05rem 0.92rem 0.9rem;
+        gap: 0.82rem;
     }
 
     .price-intro {
         max-width: none;
-        font-size: 0.84rem;
+        font-size: 0.8rem;
     }
 
     .price-value {
-        font-size: clamp(1.8rem, 8vw, 2.2rem);
+        font-size: clamp(1.72rem, 7.7vw, 2.05rem);
+    }
+
+    .price-value-block {
+        padding: 0.72rem 0 0.78rem;
     }
 
     .price-log {
-        padding: 0.9rem 0.85rem 0.82rem;
+        padding: 0.76rem 0.76rem 0.74rem;
+    }
+
+    .price-log p,
+    .price-note {
+        font-size: 0.72rem;
     }
 
     .price-card .primary-cta,
