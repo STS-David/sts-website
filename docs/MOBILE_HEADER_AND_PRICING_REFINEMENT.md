@@ -2,33 +2,34 @@
 
 ## Mobile header shell
 
-- The mobile header now uses tighter viewport padding so the shell no longer feels pushed to the right.
-- The floating glass shell and mobile nav panel are constrained to a centered max width instead of stretching visually across the viewport.
-- Internal header spacing was reduced on mobile:
-  - smaller shell padding
-  - tighter logo/text gap
-  - slightly reduced logo footprint
-  - slightly smaller burger button footprint
-- The result is a more balanced floating header with cleaner left/right breathing room.
+- The fixed mobile header was narrowed to a deliberately framed floating width instead of reading as a near full-width slab.
+- New target widths now govern the shell and dropdown together:
+  - `<= 900px`: `min(calc(100vw - 1.6rem), 24rem)`
+  - `<= 560px`: `min(calc(100vw - 1.2rem), 22.75rem)`
+  - `<= 420px`: `min(calc(100vw - 1rem), 21.75rem)`
+- Internal shell spacing was tightened:
+  - smaller horizontal padding
+  - smaller gap
+  - slightly reduced brand footprint
+  - slightly smaller burger control
+- The dropdown panel now follows the same width logic and sits closer to the shell so it feels attached rather than like a second oversized slab.
 
-## Pricing card design changes
+## Pricing card refinement
 
-- The pricing grid now gives the center package slightly more structural weight on desktop without using loud visual tricks.
-- Cards were rebuilt as denser premium modules:
-  - subtle top rule
-  - quieter inner frame
-  - tighter head hierarchy
-  - stronger price block
-  - more integrated `LOG` panel
-  - calmer support note
-  - CTA aligned as part of the card composition
-- The center card remains emphasized through proportion, depth, and hierarchy instead of louder color.
-- Mobile cards were tightened further so stacked cards feel more compact and less like oversized boxes.
+- The card system was simplified instead of made louder.
+- Changes made:
+  - removed the extra inner pseudo-frame layer
+  - reduced shadow heaviness
+  - removed the featured vertical lift effect
+  - tightened padding and spacing
+  - replaced the nested `LOG` sub-panel with scannable bullets
+  - split price display into a main amount and a quieter qualifier line
+  - added a restrained `Kernangebot` chip on the middle card
+- Mobile stacking was tightened so the cards no longer feel like oversized slabs crashing into each other.
 
 ## Still open
 
-- Final browser/device verification is still recommended for:
-  - very narrow phone widths
-  - long price line wrapping
-  - brand-name balance in the smallest mobile header state
-- No contact, cookie, routing, or booking behavior was changed beyond visual layout and the already-centralized booking abstraction.
+- A second micro-pass may still be useful for:
+  - very narrow phone screenshots of the homepage hero under the fixed nav
+  - exact line-break tuning inside the pricing bullets on the smallest widths
+  - whether the cookie chip should become even smaller on very short mobile screens
