@@ -1904,16 +1904,39 @@ textarea.contact-input {
     .price-grid .price-card {
         padding: 0.76rem 0.78rem 0.72rem;
         gap: 0.44rem;
+        background: rgba(9, 12, 17, 0.95);
+        box-shadow: 0 8px 14px -18px rgba(0, 0, 0, 0.38);
     }
 
-    .price-value {
+    .price-grid .price-value {
         font-size: clamp(1.42rem, 7vw, 1.72rem);
     }
 
-    .price-points li,
-    .price-note {
+    .price-grid .price-value-block {
+        padding: 0.28rem 0 0.3rem;
+    }
+
+    .price-grid .price-card-footer {
+        gap: 0.22rem;
+    }
+
+    .price-grid .price-card .primary-cta,
+    .price-grid .price-card .secondary-cta {
+        min-height: 1.92rem;
+        padding-block: 0.42rem;
+    }
+
+    .price-grid .price-points li,
+    .price-grid .price-note {
         font-size: 0.64rem;
         line-height: 1.26;
+    }
+
+    .price-grid .price-card--featured {
+        box-shadow:
+            0 8px 14px -18px rgba(6, 182, 212, 0.04),
+            inset 0 1px 0 rgba(255, 255, 255, 0.022);
+        border-color: rgba(103, 232, 249, 0.1);
     }
 
     .form-grid {

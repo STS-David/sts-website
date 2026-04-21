@@ -1,66 +1,51 @@
-﻿# Active Frontend Path
+# Active Frontend Path
 
 ## Current Reality
-- Active standalone entry: `index.html`
-- Active runtime styling: `current-live/css/style.css`
-- Active runtime behavior/content: `current-live/js/app-live.js`
-- Live-state reference shell: `current-live/html-shell/homepage-shell.html`
+- Authoritative deployable frontend: repo root multi-page site
+- Authoritative entry files:
+  - `/index.html`
+  - `/about/index.html`
+  - `/solutions/index.html`
+  - `/pricing/index.html`
+  - `/contact/index.html`
+  - `/faq/index.html`
+- Authoritative shared assets:
+  - `/styles/`
+  - `/scripts/`
+  - `/assets/`
 
-## Repo Separation
-### Current live runtime
-- `index.html`
-- `current-live/css/`
-- `current-live/js/`
-- `current-live/notes/`
+## Drift Status
+- Root and `/rebuild` are not fully in sync.
+- `index.html` is currently identical between both trees, but duplicated page and shared-style files have drifted.
+- Confirmed drift exists in:
+  - `/pricing/index.html` vs `/rebuild/pricing/index.html`
+  - `/styles/components.css` vs `/rebuild/styles/components.css`
+  - `/styles/layout.css` vs `/rebuild/styles/layout.css`
 
-Use this path for stabilization, GitHub Pages preview, and parity work.
+## Operational Rule
+- Root is authoritative.
+- `/rebuild` is no longer an active implementation target.
+- Do not make parallel frontend edits in both trees.
+- If `/rebuild` must be kept, regenerate or resync it from root intentionally after root changes are complete.
 
-### Legacy modular reference
-- `archive/legacy-modular/`
+## Path Roles
+### Authoritative live code
+- `/index.html`
+- route folders at repo root
+- `/styles/`
+- `/scripts/`
+- `/assets/`
 
-Keep this as historical reference only. Do not route active preview logic through it.
+Use this path for stabilization, preview validation, and deployment work.
 
-### Future rebuild workspace
-- `rebuild/components/`
-- `rebuild/pages/`
-- `rebuild/styles/`
-- `rebuild/scripts/`
+### Reference-only legacy copies
+- `/rebuild/`
+- `/current-live/`
+- `/archive/legacy-modular/`
 
-Use this for the later real multi-page rebuild after the extracted runtime is stable enough to port cleanly.
+These paths may still be useful for history or comparison, but they are not the active frontend source of truth.
 
-## Recommended Active Structure
-```text
-/
-  index.html                    # active standalone shell
-  current-live/
-    css/
-      style.css                 # active shell/design hardening
-      styles.css                # compatibility alias for older references
-    js/
-      app-live.js               # active runtime
-    notes/                      # live-state notes
-    html-shell/                 # reference snapshot only
-  docs/
-    ACTIVE_FRONTEND_PATH.md     # active-path contract
-  archive/
-    legacy-modular/             # archived reference
-  rebuild/                      # future coded multi-page workspace
-```
+## Maintenance Guardrail
+Before editing frontend code, confirm the file lives in the root site tree.
 
-## What Should Stay Active
-- `index.html`
-- `current-live/css/style.css`
-- `current-live/js/app-live.js`
-- `docs/`
-
-## What Should Be Reference-Only
-- `current-live/html-shell/`
-- `archive/legacy-modular/`
-
-## First Stabilization Changes
-1. Fix the broken stylesheet reference from `index.html`.
-2. Add a compatibility alias so older `styles.css` references do not silently fail.
-3. Harden shell-level CSS for typography, CTA buttons, nav/footer glass surfaces, inputs, and reduced-motion behavior.
-4. Remove the repeated fallback re-render cycle from `app-live.js` so first paint depends on the actual render path rather than timed retries.
-5. Keep the current hash-router and SPA-like behavior for now.
-
+If the same file exists under `/rebuild`, treat that duplicate as stale unless a deliberate resync task has been declared.

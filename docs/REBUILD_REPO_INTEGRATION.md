@@ -1,8 +1,22 @@
 # Rebuild Repo Integration
 
+## Status Update
+
+`rebuild/` is no longer the operational source of truth for the site.
+
+The authoritative deployable frontend now lives at the repo root:
+
+- `/index.html`
+- route folders at repo root
+- `/styles/`
+- `/scripts/`
+- `/assets/`
+
+`rebuild/` should be treated as a snapshot/reference copy unless it is deliberately regenerated from the root site.
+
 ## Final Rebuild Folder Structure
 
-Active rebuild site structure currently lives inside `rebuild/`:
+Snapshot rebuild site structure still exists inside `rebuild/`:
 
 - `rebuild/index.html`
 - `rebuild/about/index.html`
@@ -35,44 +49,21 @@ Active rebuild site structure currently lives inside `rebuild/`:
 - `rebuild/.nojekyll`
 - `rebuild/README.md`
 
-## What Was Added
+## Drift Warning
 
-The real coded multipage STS rebuild is already present in `rebuild/` and includes:
+Because root and `rebuild/` contain duplicated pages and shared styles, maintenance becomes risky as soon as both trees are edited independently.
 
-- homepage entry file
-- real route folders for core pages
-- shared styles
-- shared scripts
-- local logo SVG
-- local favicon asset
-- legal pages
-- cookie consent runtime
-- working Formspark contact integration
+Confirmed drift exists in:
 
-## Repo-Safe Path Status
+- `/pricing/index.html` vs `/rebuild/pricing/index.html`
+- `/styles/components.css` vs `/rebuild/styles/components.css`
+- `/styles/layout.css` vs `/rebuild/styles/layout.css`
 
-Current path status is repo-safe for repository integration:
+## Operational Rule Going Forward
 
-- page links are relative
-- asset links are relative
-- CSS and JS references are relative
-- no local filesystem paths are embedded in the public rebuild files
-- no localhost-only paths are embedded in the public rebuild files
-
-Expected external service references still exist and are intentional:
-
-- Formspark contact endpoint
-- Microsoft booking URL
-
-These are runtime integrations, not local path issues.
-
-## Remaining Before Deployment
-
-The rebuild is suitable for repository integration now, but a few items remain before any later deployment phase:
-
-- remove leftover scaffold-only directories `rebuild/components/` and `rebuild/pages/` from versioned state if they are no longer needed
-- run a final browser validation on the committed rebuild from repo context
-- complete final deployment-specific metadata/path review when the actual hosting target is chosen
+- Make frontend edits in the root site only.
+- Treat `rebuild/` as reference-only until a deliberate resync/regeneration task is performed.
+- Do not assume matching filenames across root and `rebuild/` are still identical.
 
 ## Notes On Current Workspace
 
@@ -81,6 +72,4 @@ Two rebuild subtrees still appear as scaffold leftovers:
 - `rebuild/components/`
 - `rebuild/pages/`
 
-They currently contain only `.gitkeep` placeholder files from the earlier scaffold, not active website code.
-
-In this local OneDrive-backed workspace, those placeholder files are exposed as reparse-point items and did not delete cleanly during this integration pass. So the real finished site is already organized in `rebuild/`, but those scaffold placeholders may still need removal in a later cleanup step if they are tracked in git.
+They currently contain only `.gitkeep` placeholder files from the earlier scaffold.
