@@ -1,7 +1,6 @@
-﻿(function initPageTransitions() {
-    document.addEventListener("DOMContentLoaded", () => {
+(function initPageTransitions() {
+    function clearOverlay() {
         const overlay = document.querySelector("[data-transition-overlay]");
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         if (!overlay) {
             return;
@@ -10,6 +9,17 @@
         requestAnimationFrame(() => {
             overlay.classList.remove("is-active");
         });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const overlay = document.querySelector("[data-transition-overlay]");
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (!overlay) {
+            return;
+        }
+
+        clearOverlay();
 
         function isModifiedClick(event) {
             return event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0;
@@ -70,4 +80,7 @@
             }, 220);
         });
     });
+
+    window.addEventListener("pageshow", clearOverlay);
+    window.addEventListener("popstate", clearOverlay);
 })();

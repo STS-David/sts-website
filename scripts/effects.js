@@ -1,6 +1,20 @@
-﻿(function initEffects() {
+(function initEffects() {
     const reveals = document.querySelectorAll(".reveal");
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function revealIfAboveFold(item) {
+        const rect = item.getBoundingClientRect();
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        const visibleTop = rect.top <= viewportHeight * 0.92;
+        const visibleBottom = rect.bottom >= 0;
+
+        if (visibleTop && visibleBottom) {
+            item.classList.add("is-visible");
+            return true;
+        }
+
+        return false;
+    }
 
     if (!reveals.length) {
         return;
@@ -20,7 +34,18 @@
 
         reveals.forEach((item, index) => {
             item.style.transitionDelay = `${Math.min(index % 4, 3) * 60}ms`;
+
+            if (revealIfAboveFold(item)) {
+                return;
+            }
+
             observer.observe(item);
+        });
+
+        window.addEventListener("pageshow", () => {
+            reveals.forEach((item) => {
+                revealIfAboveFold(item);
+            });
         });
     }
 
@@ -60,4 +85,3 @@
         });
     });
 })();
-

@@ -216,11 +216,11 @@
 
 @media (max-width: 900px) {
     .site-nav {
-        padding: 0.9rem 0.8rem 0;
+        padding: 0.78rem 0.78rem 0;
     }
 
     .site-nav-inner {
-        max-width: 27rem;
+        max-width: 100%;
     }
 
     .site-nav-links {
@@ -248,11 +248,16 @@
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto auto;
         align-items: center;
-        min-height: 3.35rem;
-        width: min(calc(100vw - 1.6rem), 27rem);
+        min-height: 4.15rem;
+        width: min(calc(100vw - 1.56rem), 27.5rem);
         margin-inline: auto;
-        padding: 0.5rem 0.62rem;
-        gap: 0.44rem;
+        padding: 0.72rem 0.78rem;
+        column-gap: 0.58rem;
+        row-gap: 0;
+    }
+
+    .site-nav-shell::before {
+        content: none !important;
     }
 
     .site-nav-shell .brand-lockup {
@@ -262,8 +267,8 @@
     }
 
     .site-nav-mobile {
-        width: min(calc(100vw - 1.6rem), 27rem);
-        margin: 0.42rem auto 0;
+        width: min(calc(100vw - 1.56rem), 27.5rem);
+        margin: 0.58rem auto 0;
         padding: 0.88rem 0.82rem 0.82rem;
     }
 
@@ -307,9 +312,9 @@
     }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
     .site-nav {
-        padding: 0.7rem 0.6rem 0;
+        padding: 0.72rem 0.72rem 0;
     }
 
     .site-nav-inner {
@@ -317,9 +322,10 @@
     }
 
     .site-nav-shell {
-        width: calc(100vw - 1.2rem);
-        padding: 0.48rem 0.58rem;
-        gap: 0.38rem;
+        width: min(calc(100vw - 1.44rem), 24.25rem);
+        min-height: 3.95rem;
+        padding: 0.66rem 0.72rem;
+        column-gap: 0.5rem;
     }
 
     .site-nav-shell .brand-lockup {
@@ -328,14 +334,14 @@
     }
 
     .site-nav-shell .brand-name {
-        font-size: 0.8rem;
+        font-size: 0.82rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
     .site-nav-mobile {
-        width: calc(100vw - 1.2rem);
+        width: min(calc(100vw - 1.44rem), 24.25rem);
         margin-top: 0.38rem;
         padding: 0.78rem 0.72rem 0.76rem;
         max-height: calc(100vh - 5.9rem);
@@ -346,7 +352,8 @@
     }
 
     .site-footer-grid {
-        gap: 1.65rem 1.05rem;
+        grid-template-columns: 1fr;
+        gap: 1.65rem;
     }
 
     .site-footer-bottom {
@@ -355,9 +362,27 @@
     }
 }
 
+@media (max-width: 480px) {
+    .site-nav {
+        padding: 0.68rem 0.6rem 0;
+    }
+
+    .site-nav-shell {
+        width: min(calc(100vw - 1.2rem), 23.4rem);
+        min-height: 3.72rem;
+        padding: 0.6rem 0.64rem;
+        column-gap: 0.4rem;
+    }
+
+    .site-nav-mobile {
+        width: min(calc(100vw - 1.2rem), 23.4rem);
+        margin-top: 0.42rem;
+    }
+}
+
 @media (max-width: 420px) {
     .site-nav {
-        padding: 0.66rem 0.5rem 0;
+        padding: 0.66rem 0.66rem 0;
     }
 
     .site-nav-inner {
@@ -365,10 +390,9 @@
     }
 
     .site-nav-shell {
-        width: calc(100vw - 1rem);
-        min-height: 3.2rem;
-        padding: 0.46rem 0.54rem;
-        gap: 0.34rem;
+        width: min(calc(100vw - 1.32rem), 22.9rem);
+        padding: 0.62rem 0.66rem;
+        column-gap: 0.44rem;
     }
 
     .site-nav-shell .brand-lockup {
@@ -376,7 +400,7 @@
     }
 
     .site-nav-mobile {
-        width: calc(100vw - 1rem);
+        width: min(calc(100vw - 1.32rem), 22.9rem);
         padding: 0.74rem 0.68rem 0.72rem;
     }
 
