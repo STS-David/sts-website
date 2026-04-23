@@ -1,6 +1,31 @@
-﻿(function initMobileNav() {
+(function initMobileNav() {
     document.addEventListener("DOMContentLoaded", () => {
+        const scrollTopButton = document.createElement("button");
         const nav = document.querySelector("[data-nav-root]");
+
+        scrollTopButton.type = "button";
+        scrollTopButton.className = "scroll-top-button";
+        scrollTopButton.setAttribute("aria-label", "Nach oben scrollen");
+        scrollTopButton.textContent = "Nach oben";
+        document.body.appendChild(scrollTopButton);
+
+        function syncScrollTopVisibility() {
+            if (window.scrollY > 280) {
+                scrollTopButton.classList.add("is-visible");
+            } else {
+                scrollTopButton.classList.remove("is-visible");
+            }
+        }
+
+        scrollTopButton.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        window.addEventListener("scroll", syncScrollTopVisibility, { passive: true });
+        syncScrollTopVisibility();
 
         if (!nav) {
             return;
